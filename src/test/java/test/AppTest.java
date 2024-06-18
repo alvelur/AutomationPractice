@@ -1,15 +1,11 @@
 package test;
 
 import Components.ToDoItemComponent;
-import Core.Page;
 import Pages.ToDoPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chromium.ChromiumDriver;
-
-import java.util.List;
 
 public class AppTest {
 
