@@ -15,6 +15,8 @@ public class ToDoPage extends Page {
     private static final By selectAllLabel = By.id("toggle-all-input");
     private static final By newTodoInbox = By.className("new-todo");
     private static final By toDoItems = By.className("todo-list");
+    private static final By item = By.className("view");
+
     private static final By clearCompletedButton = By.className("clear-completed");
     private static final By toDoCountSpan = By.className("todo-count");
 
@@ -54,7 +56,7 @@ public class ToDoPage extends Page {
     }
 
     public List<ToDoItemComponent<ToDoPage>> getTodoItems(){
-        return hasMany(ToDoItemComponent::new, waitFor(ExpectedConditions.presenceOfAllElementsLocatedBy(toDoItems)));
+        return hasMany(ToDoItemComponent::new, waitFor(ExpectedConditions.presenceOfNestedElementsLocatedBy(toDoItems, item)));
     }
 
 }

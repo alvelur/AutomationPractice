@@ -1,12 +1,15 @@
 package test;
 
 import Components.ToDoItemComponent;
+import Core.Page;
 import Pages.ToDoPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chromium.ChromiumDriver;
+
+import java.util.List;
 
 public class AppTest {
 
@@ -34,14 +37,14 @@ public class AppTest {
     }
 
     @Test
-    void complexInteraction() throws InterruptedException {
+    void complexInteraction() {
         ToDoPage page = new ToDoPage(driver);
         driver.get("https://todomvc.com/examples/vue/dist/#/");
 
         page.createNewTodo("Active Todo")
                 .createNewTodo("Completed Todo")
                 .getTodoItems()
-                .get(0)
+                .get(1)
                 .toggle()
                 .getPage()
                 .filterBy(ToDoPage.Filter.COMPLETED)
@@ -52,7 +55,7 @@ public class AppTest {
 
         Assertions.assertEquals(page.getTodoItems()
                 .get(0)
-                .getContent(), "Completed Todo");
+                .getContent(), "Active Todo");
     }
 
 
